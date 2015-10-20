@@ -235,7 +235,7 @@ AC_CACHE_CHECK(
   [for c++11 atomic support without GNU Atomic library],
   [folly_cv_lib_libatomic],
   [AC_LINK_IFELSE(
-    [AC_LANG_PROGRAM[
+    [AC_LANG_SOURCE[
       #include <atomic>
       int main() {
         struct Test { int val; };
@@ -446,6 +446,7 @@ AC_CHECK_HEADER([lz4.h], AC_CHECK_LIB([lz4], [LZ4_decompress_safe]))
 AC_CHECK_HEADER([snappy.h], AC_CHECK_LIB([snappy], [main]))
 AC_CHECK_HEADER([zlib.h], AC_CHECK_LIB([z], [main]))
 AC_CHECK_HEADER([lzma.h], AC_CHECK_LIB([lzma], [main]))
+AC_CHECK_HEADER([zstd.h], AC_CHECK_LIB([zstd], [main]))
 
 # Include directory that contains "folly" so #include <folly/Foo.h> works
 AM_CPPFLAGS='-I$(top_srcdir)/..'
